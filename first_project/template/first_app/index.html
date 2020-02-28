@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Django Static Images</title>
+    <link rel="stylesheet" href="{% static "css/file.css" %}">
+  </head>
+  <body>
+    <h1>This is a Pictures of Coffee created by Django</h1>
+    <!-- <img src="{% static "images/pp-hot-coffee-rf-istock.jpg" %}" alt="UH O Didn't show"> -->
+    <div class="djangotwo">
+      {% if access_records %}
+        <table>
+          <thead>
+            <th>Site Name</th>
+            <th>Date Accessed</th>
+          </thead>
+          {% for acc in access_records %}
+          <tr>
+            <td>{{acc.name}}</td>
+            <td>{{acc.date}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+          <p>No Access Records Found!</p>
+        {% endif %}
+    </div>
+  </body>
+</html>
